@@ -39,10 +39,19 @@ public class Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for (String position : positions) {
-			long start = System.nanoTime();
-			System.out.println(position + ":" + data.avgByPositionAsync(session, position) 
+		if (args.length == 0) {
+			for (String position : positions) {
+				long start = System.nanoTime();
+				System.out.println(position + ":" + data.avgByPositionAsync(session, position) 
 								+ ", time - " + ((System.nanoTime() - start) / 1000000000.0));
+			}
+		}
+		else {
+			for (String position : args) {
+				long start = System.nanoTime();
+				System.out.println(position + ":" + data.avgByPositionAsync(session, position) 
+								+ ", time - " + ((System.nanoTime() - start) / 1000000000.0));
+			}
 		}
 	}
 
